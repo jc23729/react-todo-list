@@ -22,7 +22,7 @@ function App() {
     //concat will add our new objects onto our todos
     setTodos([...todos].concat(newTodo));
     //reset input
-    setTodo("");
+    setTodo("")
   }
   function deleteTodo(id) {
    const updatedTodos = [...todos].filter((todo) => todo.id !== id);
