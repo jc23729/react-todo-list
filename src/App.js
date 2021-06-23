@@ -13,14 +13,19 @@ function App() {
 
   function handleSubmit(e) {
     // if we dont add eventpreventDefault, page wont refresh when we add todo item
-    e.preventDefault()
+    e.preventDefault();
     const newTodo = {
       //we need a unique value here
       Id: new Date().getTime(),
       //matched up with our todo hook we did earlier
       text: todo,
-      completed: false
-    }
+      completed: false,
+    };
+    // ...spread opertor used when you want to add a new item to a local data store, or display all stored items plus a new addition
+    //concat will add our new objects onto our todos
+    setTodos([...todos].concat(newTodo))
+    //reset input
+    setTodo("")
   }
 
 
