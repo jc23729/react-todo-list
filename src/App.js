@@ -24,9 +24,13 @@ function App() {
     //reset input
     setTodo("")
   }
+  //were passing in the id. which is the todo.id
   function deleteTodo(id) {
+    // were spreading it and filter it which is like map, in filter if you return a truthy value, it retur that element in that array, falsy it will not
    const updatedTodos = [...todos].filter((todo) => todo.id !== id);
+   setTodos(updatedTodos);
   }
+
   
   return (
     <div className="App">
@@ -46,7 +50,7 @@ function App() {
       {todos.map((todo) => (
         <div key={todo.id}>
           <div>{todo.text}</div>
-          {/* delete button */}
+          {/* delete button call deleteTodo function and passing in what you want to delete todo.id */}
           <button onClick={() => deleteTodo(todo.id)}>Delete</button>
         </div>
       ))}
