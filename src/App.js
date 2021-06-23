@@ -52,6 +52,8 @@ function App() {
           <div>{todo.text}</div>
           {/* delete button call deleteTodo function and passing in what you want to delete todo.id */}
           <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+          {/* checkbox */}
+          <input type ="checkbox" onChange={() =>toggleComplete(todo.id)}/>
         </div>
       ))}
     </div>
