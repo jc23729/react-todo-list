@@ -38,11 +38,15 @@ function App() {
           value={todo}
         />
         <button type="submit">Add Todo</button>
-        {/* should display our todos to the screen */}
-        {todos.map((todo) => (
-          <div key={todo.id}>{todo.text}</div>
-        ))}
       </form>
+      {/* should display our todos to the screen */}
+      {todos.map((todo) => (
+        <div key={todo.id}>
+          <div>{todo.text}</div>
+          {/* delete button */}
+          <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+        </div>
+      ))}
     </div>
   );
 }
