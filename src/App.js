@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
     e.preventDefault();
     const newTodo = {
       //we need a unique value here
-      Id: new Date().getTime(),
+      id: new Date().getTime(),
       //matched up with our todo hook we did earlier
       text: todo,
       completed: false,
@@ -24,7 +24,10 @@ function App() {
     //reset input
     setTodo("");
   }
-
+  function deleteTodo(id) {
+   const updatedTodos = [...todos].filter((todo) => todo.id !== id);
+  }
+  
   return (
     <div className="App">
       {/* onSubmit will run any time a button with submit is clicked */}
