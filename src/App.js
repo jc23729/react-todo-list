@@ -1,15 +1,12 @@
-import React from 'react'
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
   //usestate custom hooks
   //we have access of variable we can access setTodos is our setter function
-  const [todos, setTodos] = React.useState([])
-  const [todo, setTodo] = React.useState("")
-
-
-
+  const [todos, setTodos] = React.useState([]);
+  const [todo, setTodo] = React.useState("");
 
   function handleSubmit(e) {
     // if we dont add eventpreventDefault, page wont refresh when we add todo item
@@ -23,12 +20,10 @@ function App() {
     };
     // ...spread opertor used when you want to add a new item to a local data store, or display all stored items plus a new addition
     //concat will add our new objects onto our todos
-    setTodos([...todos].concat(newTodo))
+    setTodos([...todos].concat(newTodo));
     //reset input
-    setTodo("")
+    setTodo("");
   }
-
-
 
   return (
     <div className="App">
@@ -43,6 +38,10 @@ function App() {
           value={todo}
         />
         <button type="submit">Add Todo</button>
+        {/* should display our todos to the screen */}
+        {todos.map((todo) => (
+          <div key={todo.id}>{todo.text}</div>
+        ))}
       </form>
     </div>
   );
