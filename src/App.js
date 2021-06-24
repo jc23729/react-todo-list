@@ -31,6 +31,17 @@ function App() {
    setTodos(updatedTodos);
   }
 
+  function toggleComplete(id) {
+    const updatedTodos = [...todos].map((todo) => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+      }
+      return todo
+    })
+
+    setTodos(updatedTodos);
+  }
+
   
   return (
     <div className="App">
@@ -52,8 +63,8 @@ function App() {
           <div>{todo.text}</div>
           {/* delete button call deleteTodo function and passing in what you want to delete todo.id */}
           <button onClick={() => deleteTodo(todo.id)}>Delete</button>
-          {/* checkbox */}
-          <input type ="checkbox" onChange={() =>toggleComplete(todo.id)}/>
+          {/* checkbox, checked todo boolean value */}
+          <input type ="checkbox" onChange={() =>toggleComplete(todo.id)} checked={todo.completed}/>
         </div>
       ))}
     </div>
