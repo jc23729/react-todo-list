@@ -22,13 +22,13 @@ function App() {
     //concat will add our new objects onto our todos
     setTodos([...todos].concat(newTodo));
     //reset input
-    setTodo("")
+    setTodo("");
   }
   //were passing in the id. which is the todo.id
   function deleteTodo(id) {
     // were spreading it and filter it which is like map, in filter if you return a truthy value, it retur that element in that array, falsy it will not
-   const updatedTodos = [...todos].filter((todo) => todo.id !== id);
-   setTodos(updatedTodos);
+    const updatedTodos = [...todos].filter((todo) => todo.id !== id);
+    setTodos(updatedTodos);
   }
 
   function toggleComplete(id) {
@@ -36,13 +36,12 @@ function App() {
       if (todo.id === id) {
         todo.completed = !todo.completed;
       }
-      return todo
-    })
+      return todo;
+    });
 
     setTodos(updatedTodos);
   }
 
-  
   return (
     <div className="App">
       {/* onSubmit will run any time a button with submit is clicked */}
@@ -64,7 +63,11 @@ function App() {
           {/* delete button call deleteTodo function and passing in what you want to delete todo.id */}
           <button onClick={() => deleteTodo(todo.id)}>Delete</button>
           {/* checkbox, checked todo boolean value */}
-          <input type ="checkbox" onChange={() =>toggleComplete(todo.id)} checked={todo.completed}/>
+          <input
+            type="checkbox"
+            onChange={() => toggleComplete(todo.id)}
+            checked={todo.completed}
+          />
         </div>
       ))}
     </div>
